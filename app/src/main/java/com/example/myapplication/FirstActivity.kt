@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
 
-class P41Activity: AppCompatActivity() {
+class FirstActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.p41_activity)
+        setContentView(R.layout.first_activity)
         val myImageView: ImageView = findViewById(R.id.apple)
         val textV: TextView = findViewById((R.id.text))
         val intent = Intent(this,SecondActivity::class.java)
