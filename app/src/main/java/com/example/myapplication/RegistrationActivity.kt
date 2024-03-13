@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 
 class RegistrationActivity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 1
@@ -37,23 +38,32 @@ class RegistrationActivity : AppCompatActivity() {
             startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST)
         }
         bReg.setOnClickListener {
-            val name= eName.text.toString()
-            val login= eLogin.text.toString()
-            val phone= ePhone.text.toString()
-            val date= eDate.text.toString()
-            val pass= ePass.text.toString()
-            val conf= eConfirm.text.toString()
-            if(pass==conf && pass!=""){
-                sharedPreferences.edit().apply {
-                    putString("name", name)
-                    putString("login", login)
-                    putString("phone", phone)
-                    putString("date", date)
-                    putString("pass", pass)
-                    apply()
-                }
-                startActivity(intentAuth)
+            val name = eName.text.toString().trim()
+            val login = eLogin.text.toString().trim()
+            val phone = ePhone.text.toString().trim()
+            val date = eDate.text.toString().trim()
+            val pass = ePass.text.toString().trim()
+            val conf = eConfirm.text.toString().trim()
+
+            if (name.isEmpty() || login.isEmpty() || phone.isEmpty() || date.isEmpty() || pass.isEmpty() || conf.isEmpty()) {
+                Toast.makeText(this, "Будь ласка, заповніть всі поля", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            if (pass != conf) {
+                Toast.makeText(this, "Паролі не співпадають", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            sharedPreferences.edit().apply {
+                putString("name", name)
+                putString("login", login)
+                putString("phone", phone)
+                putString("date", date)
+                putString("pass", pass)
+                apply()
+            }
+            startActivity(intentAuth)
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

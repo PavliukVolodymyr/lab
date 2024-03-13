@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class AuthActivity : AppCompatActivity() {
     private val sharedPreferences: SharedPreferences by lazy {
@@ -25,13 +26,21 @@ class AuthActivity : AppCompatActivity() {
             startActivity(intentReg)
         }
         bLog.setOnClickListener {
-            val login = eLogin.text.toString()
-            val pass = ePass.text.toString()
+            val login = eLogin.text.toString().trim()
+            val pass = ePass.text.toString().trim()
+
+            if (login.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(this, "Будь ласка, введіть логін і пароль", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             val savedLogin = sharedPreferences.getString("login", "")
             val savedPass = sharedPreferences.getString("pass", "")
-            if (login==savedLogin && pass==savedPass && savedPass!="" && savedLogin!=""){
+
+            if (login == savedLogin && pass == savedPass && savedPass != "" && savedLogin != "") {
                 startActivity(intentMenu)
+            } else {
+                Toast.makeText(this, "Неправильний логін або пароль", Toast.LENGTH_SHORT).show()
             }
         }
 
