@@ -15,7 +15,7 @@ class RegistrationActivity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 1
     private lateinit var imageView: ImageView
     private val sharedPreferences: SharedPreferences by lazy {
-        getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        getSharedPreferences(Const.MY_SHARE_PREF, Context.MODE_PRIVATE)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +56,11 @@ class RegistrationActivity : AppCompatActivity() {
             }
 
             sharedPreferences.edit().apply {
-                putString("name", name)
-                putString("login", login)
-                putString("phone", phone)
-                putString("date", date)
-                putString("pass", pass)
+                putString(Const.NAME, name)
+                putString(Const.LOGIN, login)
+                putString(Const.PHONE, phone)
+                putString(Const.DATE, date)
+                putString(Const.PASSWORD, pass)
                 apply()
             }
             startActivity(intentAuth)

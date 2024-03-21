@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="btn_edit_lesson">Edit lesson</string>
+    <string name="btn_edit_lesson">Редагувати пару</string>
 </resources>

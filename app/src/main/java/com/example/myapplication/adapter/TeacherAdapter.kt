@@ -11,7 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.model.ProductModel
 import com.example.myapplication.model.TeacherModel
 
 class TeacherAdapter:RecyclerView.Adapter<TeacherAdapter.TeacherViewHolder>() {

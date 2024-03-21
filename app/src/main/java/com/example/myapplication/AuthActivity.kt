@@ -11,7 +11,7 @@ import android.widget.Toast
 
 class AuthActivity : AppCompatActivity() {
     private val sharedPreferences: SharedPreferences by lazy {
-        getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        getSharedPreferences(Const.MY_SHARE_PREF, Context.MODE_PRIVATE)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +34,8 @@ class AuthActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val savedLogin = sharedPreferences.getString("login", "")
-            val savedPass = sharedPreferences.getString("pass", "")
+            val savedLogin = sharedPreferences.getString(Const.LOGIN, "")
+            val savedPass = sharedPreferences.getString(Const.PASSWORD, "")
 
             if (login == savedLogin && pass == savedPass && savedPass != "" && savedLogin != "") {
                 startActivity(intentMenu)
