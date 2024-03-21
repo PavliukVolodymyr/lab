@@ -32,7 +32,7 @@ class MenuActivity :AppCompatActivity() {
         val bAddProduct= findViewById<Button>(R.id.bAddProduct)
         rvProduct= findViewById<RecyclerView>(R.id.rvProduct)
         val intentStudentList= Intent(this,TeacherList::class.java)
-        val intentPairList= Intent(this,PairList::class.java)
+        val intentLessonList= Intent(this,LessonList::class.java)
         val intent = Intent(this,CalculatorActivity::class.java)
         val intentAuth = Intent(this,AuthActivity::class.java)
         val countDownTimer = object : CountDownTimer(4000, 1000) {
@@ -41,7 +41,7 @@ class MenuActivity :AppCompatActivity() {
                 countDownText.text = secondsRemaining.toString()
             }
             override fun onFinish() {
-                countDownText.text = "Вітаю!"
+                countDownText.text = getString(R.string.hello)
             }
 
         }
@@ -49,7 +49,7 @@ class MenuActivity :AppCompatActivity() {
         countDownTimer.start()
         buton.setOnClickListener {
             val currentText = editText.text.toString()
-            if(currentText=="calc")
+            if(currentText==Const.CALC)
                 startActivity(intent)
         }
         bLogOut.setOnClickListener {
@@ -61,7 +61,7 @@ class MenuActivity :AppCompatActivity() {
             startActivity(intentStudentList)
         }
         bPairList.setOnClickListener{
-            startActivity(intentPairList)
+            startActivity(intentLessonList)
         }
         bAddProduct.setOnClickListener {
             showAddProductDialog()
@@ -71,7 +71,7 @@ class MenuActivity :AppCompatActivity() {
 
     private fun showAddProductDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Додати товар")
+        builder.setTitle(getString(R.string.addPr))
 
         // Підключення макету вспливаючого вікна
         val view = layoutInflater.inflate(R.layout.dialog_add_product, null)
@@ -80,7 +80,7 @@ class MenuActivity :AppCompatActivity() {
         val etProductName = view.findViewById<EditText>(R.id.etProductName)
         val etProductPrice = view.findViewById<EditText>(R.id.etProductPrice)
 
-        builder.setPositiveButton("Додати") { dialog, _ ->
+        builder.setPositiveButton(getString(R.string.add)) { dialog, _ ->
             val productName = etProductName.text.toString()
             val productPrice = etProductPrice.text.toString().toDoubleOrNull()
             if (productName.isNotEmpty() && productPrice != null) {
@@ -88,12 +88,12 @@ class MenuActivity :AppCompatActivity() {
                 adapter.addProduct(newProduct)
             }
             else{
-                Toast.makeText(this, "Будь ласка, заповніть всі поля", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.fill_fields), Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()
         }
 
-        builder.setNegativeButton("Відмінити") { dialog, _ ->
+        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
             dialog.dismiss()
         }
 

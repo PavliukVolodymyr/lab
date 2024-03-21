@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="btn_edit_lesson">Редагувати пару</string>
+    <string name="fill_fields">Будь ласка, заповніть всі поля</string>
+    <string name="cancel">Відмінити</string>
+    <string name="add">Додати</string>
+    <string name="addPr">Додати товар</string>
+    <string name="addTe">Додати вчителя</string>
+    <string name="hello">Вітаю</string>
+    <string name="update">Оновити</string>
+    <string name="editTeacher">Редагувати вчителя</string>
+    <string name="editLesson">Редагувати пару</string>
+
+
 </resources>

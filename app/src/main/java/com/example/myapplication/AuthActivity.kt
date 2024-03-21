@@ -30,7 +30,7 @@ class AuthActivity : AppCompatActivity() {
             val pass = ePass.text.toString().trim()
 
             if (login.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, "Будь ласка, введіть логін і пароль", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.fill_fields), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

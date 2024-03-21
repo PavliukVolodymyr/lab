@@ -18,7 +18,7 @@
             android:name=".TeacherList"
             android:exported="false" />
         <activity
-            android:name=".PairList"
+            android:name=".LessonList"
             android:exported="false" />
         <activity
             android:name=".RegistrationActivity"

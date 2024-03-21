@@ -7,5 +7,6 @@ object Const {
     const val PHONE = "PHONE"
     const val DATE = "DATE"
     const val NAME = "NAME"
+    const val CALC = "calc"
 
 }
