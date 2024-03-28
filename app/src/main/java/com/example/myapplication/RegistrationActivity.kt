@@ -46,12 +46,12 @@ class RegistrationActivity : AppCompatActivity() {
             val conf = eConfirm.text.toString().trim()
 
             if (name.isEmpty() || login.isEmpty() || phone.isEmpty() || date.isEmpty() || pass.isEmpty() || conf.isEmpty()) {
-                Toast.makeText(this, "Будь ласка, заповніть всі поля", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.fill_fields), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (pass != conf) {
-                Toast.makeText(this, "Паролі не співпадають", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.passwordErr), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

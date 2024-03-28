@@ -40,7 +40,7 @@ class AuthActivity : AppCompatActivity() {
             if (login == savedLogin && pass == savedPass && savedPass != "" && savedLogin != "") {
                 startActivity(intentMenu)
             } else {
-                Toast.makeText(this, "Неправильний логін або пароль", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
             }
         }
 

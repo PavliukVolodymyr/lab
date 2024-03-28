@@ -30,7 +30,7 @@ class LessonList : AppCompatActivity() {
 
     private fun showAddLessonDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Додати пару")
+        builder.setTitle(getString(R.string.addLe))
 
         val view = layoutInflater.inflate(R.layout.dialog_add_lesson, null)
         builder.setView(view)
@@ -38,7 +38,7 @@ class LessonList : AppCompatActivity() {
         val etProductName = view.findViewById<EditText>(R.id.etProductName)
         val etProductPrice = view.findViewById<EditText>(R.id.etProductPrice)
 
-        builder.setPositiveButton("Додати") { dialog, _ ->
+        builder.setPositiveButton(getString(R.string.add)) { dialog, _ ->
             val teacherName = etProductName.text.toString()
             val teacherLast = etProductPrice.text.toString()
             if (teacherName.isNotEmpty() && teacherLast.isNotEmpty()) {
@@ -46,12 +46,12 @@ class LessonList : AppCompatActivity() {
                 adapter.addLesson(newLesson)
             }
             else{
-                Toast.makeText(this, "Будь ласка, заповніть всі поля", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.fill_fields), Toast.LENGTH_SHORT).show()
             }
             dialog.dismiss()
         }
 
-        builder.setNegativeButton("Відмінити") { dialog, _ ->
+        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
             dialog.dismiss()
         }
 

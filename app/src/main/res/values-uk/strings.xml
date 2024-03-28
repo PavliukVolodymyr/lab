@@ -6,10 +6,14 @@
     <string name="add">Додати</string>
     <string name="addPr">Додати товар</string>
     <string name="addTe">Додати вчителя</string>
+    <string name="addLe">Додати пару</string>
     <string name="hello">Вітаю</string>
     <string name="update">Оновити</string>
     <string name="editTeacher">Редагувати вчителя</string>
     <string name="editLesson">Редагувати пару</string>
+    <string name="incorrect">Неправильний логін або пароль</string>
+    <string name="error">Помилка</string>
+    <string name="passwordErr">Паролі не співпадають</string>
 
 
 </resources>
