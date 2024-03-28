@@ -8,5 +8,6 @@ object Const {
     const val DATE = "DATE"
     const val NAME = "NAME"
     const val CALC = "calc"
+    const val AUTH = "AUTH"
 
 }

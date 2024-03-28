@@ -61,6 +61,7 @@ class RegistrationActivity : AppCompatActivity() {
                 putString(Const.PHONE, phone)
                 putString(Const.DATE, date)
                 putString(Const.PASSWORD, pass)
+                putInt(Const.AUTH,0)
                 apply()
             }
             startActivity(intentAuth)

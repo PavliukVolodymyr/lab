@@ -12,12 +12,16 @@ import com.example.myapplication.adapter.ProductAdapter
 import com.example.myapplication.model.ProductModel
 import java.util.ArrayList
 import android.app.AlertDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.widget.Toast
 
 lateinit var adapter:ProductAdapter
 class MenuActivity :AppCompatActivity() {
 
-
+    private val sharedPreferences: SharedPreferences by lazy {
+        getSharedPreferences(Const.MY_SHARE_PREF, Context.MODE_PRIVATE)
+    }
     lateinit var recycleView:RecyclerView
     lateinit var rvProduct:RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +57,7 @@ class MenuActivity :AppCompatActivity() {
                 startActivity(intent)
         }
         bLogOut.setOnClickListener {
+            sharedPreferences.edit().putInt(Const.AUTH,0).apply()
             intentAuth.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intentAuth)
             finish()

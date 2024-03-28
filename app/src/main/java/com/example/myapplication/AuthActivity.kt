@@ -25,6 +25,10 @@ class AuthActivity : AppCompatActivity() {
         bReg.setOnClickListener {
             startActivity(intentReg)
         }
+        val isAuth = sharedPreferences.getInt(Const.AUTH, 0)
+        if (isAuth!=0){
+            startActivity(intentMenu)
+        }
         bLog.setOnClickListener {
             val login = eLogin.text.toString().trim()
             val pass = ePass.text.toString().trim()
@@ -38,6 +42,7 @@ class AuthActivity : AppCompatActivity() {
             val savedPass = sharedPreferences.getString(Const.PASSWORD, "")
 
             if (login == savedLogin && pass == savedPass && savedPass != "" && savedLogin != "") {
+                sharedPreferences.edit().putInt(Const.AUTH,1).apply()
                 startActivity(intentMenu)
             } else {
                 Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
